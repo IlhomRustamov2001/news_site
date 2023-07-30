@@ -1,0 +1,22 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title%} Texnologiya yangiliklar {% endblock title %}
+
+{% block content %}
+
+{% for texnologik in texnologik_yangiliklar %}
+<div class="container">
+    <div class="row">
+       
+        <div class="col-sm-6">
+            <a href="{{texnologik.get_absolute_url}}"> <img src="{{texnologik.image.url}}" alt="{{texnologik.title}}" style="width:50%"></a>
+        </div>
+        <div class="col-sm-8">
+            <a href="{{texnologik.get_absolute_url}}"> <h3>{{texnologik.title}}</h3></a>
+        </div>
+    
+    </div>
+</div>
+{% endfor %}
+
+{% endblock content %}
