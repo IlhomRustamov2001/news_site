@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{%  block title %} Profilni tahrirlash{% endblock title %}
+
+{% block content %}
+
+<h1>Foydalanuvchi malumotlarini o'zgartirish</h1>
+<p>Siz o'zingiz haqingizdagi malumotlarni quyidagi forma orqali o'zgartirishingiz mumkin:</p>
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{user_form.as_p}}
+    {{profile_form.as_p}}
+    <button type="submit">O'zgarishlarni saqlash</button>
+</form>
+{% endblock content %}

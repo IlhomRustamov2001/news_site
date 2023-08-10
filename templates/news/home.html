@@ -1,5 +1,6 @@
 {% extends "news/base.html" %}
 {% load static %}
+{% load hitcount_tags %}
 {% block title %} Bosh sahifa {% endblock title %}
 {% block content %}
   <section id="sliderSection">
@@ -25,8 +26,11 @@
              {% for news in news_list %}
               <li>
                 <div class="media"> <a href="{{news.get_absolute_url}}" class="media-left"> <img alt="" src="{{news.image.url}}"> </a>
+                  
                   <div class="media-body"> <a href="{{news.get_absolute_url}}" class="catg_title"> {{ news.title | truncatewords:5 }}</a> </div>
+                  <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %} </p>
                 </div>
+                
               </li>
               {% endfor %}
             </ul>
@@ -51,6 +55,7 @@
                     <figcaption> <a href="{{local.get_absolute_url}}">{{ local.title |truncatewords:5 }}</a> </figcaption>
                     <p>{{local.title}}</p>
                   </figure>
+                  <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for local %} </p>
                 </li>
                 {% endif %}
                 {% endfor %}
@@ -63,6 +68,7 @@
                 <li>
                   <div class="media wow fadeInDown"> <a href="{{mahalliy.get_absolute_url}}" class="media-left"> <img alt="" src="{{ mahalliy.image.url }}"> </a>
                     <div class="media-body"> <a href="{{mahalliy.get_absolute_url}}" class="catg_title">{{ mahalliy.title }}</a> </div>
+                    <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for mahalliy %} </p>
                   </div>
                 </li>      
                   {% endif %}         
@@ -82,6 +88,7 @@
                       <figcaption> <a href="{{xorij.get_absolute_url}}">{{xorij.title}}</a> </figcaption>
                       <p>{{xorij.body | truncatewords:10}}</p>
                     </figure>
+                    <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for xorij %} </p>
                   </li>
                   {% endif %}
                   {% endfor %}
@@ -92,6 +99,7 @@
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{xorij.get_absolute_url}}" class="media-left"> <img alt="" src="{{xorij.image.url}}"> </a>
                       <div class="media-body"> <a href="{{xorij.get_absolute_url}}" class="catg_title"> {{ xorij.title }}</a> </div>
+                      <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for xorij %} </p>
                     </div>
                   </li>
                   {% endif %}
@@ -109,6 +117,7 @@
                     <figure class="bsbig_fig wow fadeInDown"> <a href="{{news.get_absolute_url}}" class="featured_img"> <img alt="" src="{{news.image.url}}"> <span class="overlay"></span> </a>
                       <figcaption> <a href="{{news.get_absolute_url}}">{{ news.title }}</a> </figcaption>
                       <p>{{news.body | truncatewords:10}}</p>
+                      <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %} </p>
                     </figure>
                   </li>
                   {% endif %}
@@ -120,6 +129,7 @@
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{texnologiya.get_absolute_url}}" class="media-left"> <img alt="" src="{{texnologiya.image.url}}"> </a>
                       <div class="media-body"> <a href="{{texnologiya.get_absolute_url}}" class="catg_title"> {{texnologiya.title}}</a> </div>
+                      <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for texnologiya %} </p>
                     </div>
                   </li>  
                   {% endif %}
@@ -135,6 +145,7 @@
               <li>
                 <div class="photo_grid">
                   <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="{{maxalliy.get_absolute_url}}" title="Photography Ttile 1"> <img src="{{maxalliy.image.url}}" alt=""/></a> </figure>
+                  <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for maxalliy %} </p>
                 </div>
               </li>    
               {% endfor %}         
@@ -150,6 +161,7 @@
                   <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{{sport.get_absolute_url}}"> <img src="{{sport.image.url}}" alt=""> <span class="overlay"></span> </a>
                     <figcaption> <a href="{{sport.get_absolute_url}}">{{ sport.title }}</a> </figcaption>
                     <p>{{sport.body | truncatewords:10}}</p>
+                    <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for sport %} </p>
                   </figure>
                 </li>
                 {% endif %}
@@ -163,6 +175,7 @@
                 <li>
                   <div class="media wow fadeInDown"> <a href="{{sport.get_absolute_url}}" class="media-left"> <img alt="" src="{{sport.image.url}}"> </a>
                     <div class="media-body"> <a href="{{sport.get_absolute_url}}" class="catg_title"> {{sport.title}}</a> </div>
+                    <p>Ko'rilganlar soni:  <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for sport %} </p>
                   </div>
                 </li>   
                 {% endif %}

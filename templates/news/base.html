@@ -33,9 +33,18 @@
               <li><a href="{% url 'home_page' %}">Asosiy sahifa</a></li>
               <li><a href="{% url 'about_page' %}">Biz haqimizda</a></li>
               <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
+              {% if request.user.is_authenticated %}
+              <li><a href="{% url 'admin_page' %}">Admin sahifasi</a></li>
+              {% endif %}
             </ul>
           </div>
           <div class="header_top_right">
+            {% if request.user.is_authenticated %}
+            <p><a href="{% url 'logout' %}" style="color: palegreen;">LogOut</a></p>
+            <p><a href="{% url 'user_profile' %} "style="color:yellow;">Mening profilim</a></p>
+            {% else %}
+            <p><a href="{% url 'login' %}" style="color: yellow;">Saytga kirish</a></p>
+            {% endif %}
             <p>{% now 'jS F Y H:i' %}</p>
           </div>
         </div>
@@ -61,6 +70,11 @@
           <li><a href="{% url 'sport_news_page' %}">Sport</a></li>
           <li><a href="{% url 'local_news_page' %}">Mahalliy</a></li>
           <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
+          <li>
+            <form action="{% url 'search_results' %}" method="get"  >
+              <input  type="search" name="q" placeholder="Qidiruv..." class="form-control">
+            </form>
+          </li>
         
         </ul>
       </div>
@@ -129,7 +143,7 @@
       </div>
     </div>
     <div class="footer_bottom">
-      <p class="copyright">Copyright &copy; 2045 <a href="index.html">NewsFeed</a></p>
+      <p class="copyright">Copyright &copy; 2045 <a href="{% url 'home_page' %}">NewsFeed</a></p>
       <p class="developer">Developed By Wpfreeware</p>
     </div>
   </footer>
