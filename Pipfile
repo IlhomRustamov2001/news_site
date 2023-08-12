@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-modeltranslation = "*"
+python-decouple = "*"
+whitenoise = "*"
 
 [dev-packages]
 

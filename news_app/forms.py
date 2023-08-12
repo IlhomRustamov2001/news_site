@@ -18,3 +18,5 @@ class CommentForm(forms.ModelForm):
                 'placeholder': 'body'
             })
         }
+
+        
